@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from server.app.face import face_router
 import uvicorn
 
 
@@ -11,7 +12,7 @@ def create_app():
 
 
 def include_router(app: FastAPI):
-    return None
+    app.include_router(face_router)
 
 
 def add_cors_middleware(app: FastAPI):
