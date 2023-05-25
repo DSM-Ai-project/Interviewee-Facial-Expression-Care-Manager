@@ -111,5 +111,3 @@ for epoch in range(1, num_epochs + 1):
             'loss': loss,
             'valid_loss': valid_loss
         }, f"{path}{epoch}model.pt")
-
-    print(f"epoch : {epoch}, train_loss : {loss}, val_loss : {valid_loss}")
