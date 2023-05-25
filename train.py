@@ -10,7 +10,7 @@ import os
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # 데이터셋 경로와 클래스 수
-data_dir = 'cropped/'
+data_dir = 'data/'
 num_classes = len(os.listdir(data_dir))
 
 # 모델 정의
