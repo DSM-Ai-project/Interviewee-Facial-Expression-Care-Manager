@@ -15,7 +15,7 @@ model = EfficientNet.from_name('efficientnet-b0')
 num_classes = len(CLASSES)
 model._fc = nn.Linear(model._fc.in_features, num_classes)
 
-checkpoint = torch.load('../model/best_model.pt', map_location=torch.device('cpu'))
+checkpoint = torch.load('server/model/best_model.pt', map_location=torch.device('cpu'))
 model.load_state_dict(checkpoint['model_state_dict'])
 
 transform = transforms.Compose([
@@ -38,7 +38,8 @@ def crop_image(img):
     else:
         return []
 
-@face_router.get("/face")
+
+@face_router.post("/face")
 async def predict_image(image: UploadFile = File(...)):
     # 이미지 파일을 읽어옵니다.
     contents = await image.read()
